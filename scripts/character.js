@@ -12,9 +12,9 @@ function newCharacter(divId, name, baseAtk, baseDef, baseHp)
         baseDef: baseDef,
         baseHp: baseHp,
         
-        getAkt: function() { return baseAtk },
-        getDef: function() { return baseDef },
-        getHp: function() { return baseHp },
+        getAtk: function() { if (this.unlocked) return baseAtk; else return 0; },
+        getDef: function() { if (this.unlocked) return baseDef; else return 0; },
+        getHp: function() { if (this.unlocked) return baseHp; else return 0; },
         
         updateUI: function()
         {
@@ -24,7 +24,7 @@ function newCharacter(divId, name, baseAtk, baseDef, baseHp)
                     '<div id="' + divId + '" class="character">' +
                         '<h3 class="character-name">' + name + '</h3>' +
                         '<div class="character-stats">' +
-                            '<div class="character-atk">Akt:<br/>' + this.getAkt() + '</div>' +
+                            '<div class="character-atk">Akt:<br/>' + this.getAtk() + '</div>' +
                             '<div class="character-def">Def:<br/>' + this.getDef() + '</div>' +
                             '<div class="character-hp">Hp:<br/>' + this.getHp() + '</div>' +
                         '</div>' +
