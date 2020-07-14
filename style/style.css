@@ -6,6 +6,7 @@ html, body
 .character
 {
     border: 2px solid black;
+    border-radius: 5px;
     width: auto;
     margin-bottom: 5px;
     padding: 5px;
@@ -19,6 +20,8 @@ html, body
 #characters
 {
     border: 2px solid black;
+    border-radius: 5px;
+    margin-right: 5px;
     width: 15%;
     height: 100%;
     padding: 5px;
@@ -41,6 +44,7 @@ html, body
 {
     float: left;
     border: 2px solid black;
+    border-radius: 5px;
     width: 68%;
     height: 45%;
     padding: 5px;
