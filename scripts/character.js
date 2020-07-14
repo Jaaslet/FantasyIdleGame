@@ -23,10 +23,10 @@ function newCharacter(divId, name, baseAtk, baseDef, baseHp)
                 $('#characters').append(
                     '<div id="' + divId + '" class="character">' +
                         '<h3 class="character-name">' + name + '</h3>' +
-                        '<div class="character-stats"' +
-                            '<div class="character-atk">' + this.getAkt() + '</div>' +
-                            '<div class="character-def">' + this.getDef() + '</div>' +
-                            '<div class="character-hp">' + this.getHp() + '</div>' +
+                        '<div class="character-stats">' +
+                            '<div class="character-atk">Akt:<br/>' + this.getAkt() + '</div>' +
+                            '<div class="character-def">Def:<br/>' + this.getDef() + '</div>' +
+                            '<div class="character-hp">Hp:<br/>' + this.getHp() + '</div>' +
                         '</div>' +
                     '</div>'
                 )
