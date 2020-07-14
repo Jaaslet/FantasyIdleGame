@@ -1,5 +1,6 @@
-html, body {
-  height: 98%;
+html, body
+{
+  height: 98%; 
 }
 
 .character
@@ -10,7 +11,7 @@ html, body {
     padding: 5px;
 }
 
-.character-name
+.character-name, .area-name
 {
     margin: 0px;
 }
@@ -22,6 +23,7 @@ html, body {
     height: 100%;
     padding: 5px;
     overflow-y: auto;
+    float: left;
 }
 
 .character-stats
@@ -33,4 +35,14 @@ html, body {
 {
     float: left;
     padding-right: 10px;
+}
+
+#areas
+{
+    float: left;
+    border: 2px solid black;
+    width: 68%;
+    height: 45%;
+    padding: 5px;
+    overflow-y: auto;
 }
