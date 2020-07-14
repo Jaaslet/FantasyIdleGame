@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Fantasy idle game</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script src="scripts/const.js"></script>
+    <script src="scripts/character.js"></script>
+    <script src="scripts/addCharacters.js"></script>
+    
+    <script>
+        window.onload = function()
+        {
+            for (var characterName in characters)
+            {
+                characters[characterName].updateUI();
+            }
+        }
+    </script>
+  </head>
+  <body>
+    
+    <div id="characters"></div>
+    
+  </body>
+</html>
