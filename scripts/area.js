@@ -17,10 +17,10 @@ function newArea(divId, name, events)
                     '<div id="' + divId + '" class="area">' +
                         '<h1 class="area-name">' + this.name + '</h1>' +
                         '<div class="events">' +
-                            this.events.reduce((result, e) => result + e.GetUI(), '') +
+                            this.events.reduce((result, e) => result + e.getUI(), '') +
                         '</div>' +
                     '</div>'
-                )
+                );
             }
         }
     };
