@@ -15,4 +15,3 @@ characters[character2Name] = newCharacter('character2', character2Name, 4, 3, 60
 
 
 characters[character1Name].unlocked = true;
-characters[character2Name].unlocked = true;

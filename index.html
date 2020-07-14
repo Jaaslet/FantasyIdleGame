@@ -12,6 +12,7 @@
     <script src="scripts/event.js"></script>
     <script src="scripts/area.js"></script>
     <script src="scripts/addAreas.js"></script>
+    <script src="scripts/tick.js"></script>
     
     <script>
         window.onload = function()
@@ -24,13 +25,17 @@
             {
                 areas[areaName].updateUI();
             }
+            setInterval(doTick, 2000);
         }
     </script>
   </head>
   <body>
     
     <div id="characters"></div>
-    <div id="areas"></div>
+    <div id="mid-area">
+        <div id="areas"></div>
+        <div id="currentEvent"></div>
+    </div>
     
   </body>
 </html>
