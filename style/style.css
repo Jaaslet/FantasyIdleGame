@@ -17,16 +17,23 @@ html, body
     margin: 0px;
 }
 
+#playerinfo
+{
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-right: 5px;
+    height: 10%;
+    padding: 5px;
+}
+
 #characters
 {
     border: 2px solid black;
     border-radius: 5px;
     margin-right: 5px;
-    width: 15%;
-    height: 100%;
+    height: 90%;
     padding: 5px;
     overflow-y: auto;
-    float: left;
 }
 
 .character-stats
@@ -40,18 +47,27 @@ html, body
     padding-right: 10px;
 }
 
+#mid-area, #left-area
+{
+    float: left;
+    height: 98%;
+}
+
 #mid-area
 {
     width: 68%;
-    float: left;
-    height: 100%;
+}
+
+#left-area
+{
+    width: 15%;
 }
 
 #areas
 {
     border: 2px solid black;
     border-radius: 5px;
-    height: 49%;
+    height: 50%;
     padding: 5px;
 }
 
@@ -59,7 +75,7 @@ html, body
 {
     border: 2px solid black;
     border-radius: 5px;
-    height: 49%;
+    height: 50%;
     padding: 5px;
     
 }

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style/style.css">
     
     <script src="scripts/const.js"></script>
+    <script src="scripts/playerinfo.js"></script>
     <script src="scripts/character.js"></script>
     <script src="scripts/addCharacters.js"></script>
     <script src="scripts/event.js"></script>
@@ -31,13 +32,17 @@
             {
                 areas[areaName].updateUI();
             }
+            playerinfo.createUI();
             setInterval(doTick, 2000);
         }
     </script>
   </head>
   <body>
     
-    <div id="characters"></div>
+    <div id="left-area">
+        <div id="playerinfo"></div>
+        <div id="characters"></div>
+    </div>
     <div id="mid-area">
         <div id="areas"></div>
         <div id="currentEvent"></div>
