@@ -12,6 +12,9 @@ class CombatEvent extends Event
     
     onClick()
     {
+        if (playerinfo.currentHp === 0)
+            return;
+        
         $('#currentEvent').html(
             '<div class="enemy-stats">atk: <span id="enemy-atk">' + this.atk + '</span></div>' +
             '<div class="enemy-stats">def: <span id="enemy-def">' + this.def + '</span></div>' +
@@ -22,15 +25,17 @@ class CombatEvent extends Event
     }
     
     doTick()
-    {
-        var playerAtk = Object.values(characters).reduce((total, c) => total + c.getAtk(), 0);
-        var playerDef = Object.values(characters).reduce((total, c) => total + c.getDef(), 0);
-        
-        var damageToEnemy = playerAtk - this.def;
+    {   
+        var damageToEnemy = playerinfo.atk - this.def;
         if (damageToEnemy < 0)
             damageToEnemy = 0;
         
-        this.currentHp = this.currentHp - damageToEnemy
+        var damageToPlayer = this.atk - playerinfo.def;
+        if (damageToPlayer < 0)
+            damageToPlayer = 0;
+        
+        this.currentHp = this.currentHp - damageToEnemy;
+        playerinfo.currentHp = playerinfo.currentHp - damageToPlayer;
         
         if (this.currentHp <= 0)
         {
@@ -38,6 +43,14 @@ class CombatEvent extends Event
             this.currentHp = this.hp;
         }
         
+        if (playerinfo.currentHp <=0)
+        {
+            playerinfo.currentHp = 0;
+            currentEvent = undefined;
+            $('#currentEvent').html('');
+        }
+        
         $('#enemy-hp').html(this.currentHp);
+        $('#playerinfo-hp-amount').html(playerinfo.currentHp);
     }
 }
