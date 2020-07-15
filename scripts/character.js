@@ -25,7 +25,7 @@ class Character
         this.xp += amount;
     }
         
-    updateUI    ()
+    updateUI()
     {
         if (this.unlocked)
         {

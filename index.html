@@ -22,6 +22,7 @@
         {
             if (currentEvent !== undefined)
                 currentEvent.doTick();
+            playerinfo.calculateIncome();
         }
     
         window.onload = function()
@@ -33,9 +34,11 @@
             for (var areaName in areas)
             {
                 areas[areaName].updateUI();
+                for (var eventName in areas[areaName].events)
+                    areas[areaName].events[eventName].createUI();
             }
             playerinfo.createUI();
-            setInterval(doTick, 2000);
+            setInterval(doTick, 1000);
         }
     </script>
   </head>
@@ -48,6 +51,9 @@
     <div id="mid-area">
         <div id="areas"></div>
         <div id="currentEvent"></div>
+    </div>
+    <div id="right-area">
+        <div id="properties"></div>
     </div>
     
   </body>

@@ -9,6 +9,7 @@ class CombatEvent extends Event
         this.rewards = rewards;
     }
     
+    createUI() { }
     
     onClick()
     {

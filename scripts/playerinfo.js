@@ -5,6 +5,7 @@ var playerinfo =
     atk: 0,
     def: 0,
     hp: 0,
+    income: 0,
     
     createUI: function()
     {
@@ -25,6 +26,8 @@ var playerinfo =
     getAtk: function() { return Object.values(characters).reduce((total, c) => total + c.getAtk(), 0); },
     getDef: function() { return Object.values(characters).reduce((total, c) => total + c.getDef(), 0); },
     getHp: function() { return Object.values(characters).reduce((total, c) => total + c.getHp(), 0); },
+    
+    calculateIncome: function() { this.changeGold(this.income) },
     
     changeGold: function(amount)
     {

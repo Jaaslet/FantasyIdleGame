@@ -3,7 +3,7 @@ html, body
   height: 98%; 
 }
 
-.character
+.character, .property
 {
     border: 2px solid black;
     border-radius: 5px;
@@ -12,7 +12,7 @@ html, body
     padding: 5px;
 }
 
-.character-name, .area-name
+.character-name, .area-name, .property-name
 {
     margin: 0px;
 }
@@ -37,6 +37,16 @@ html, body
     overflow-y: auto;
 }
 
+#properties
+{
+    border: 2px solid black;
+    border-radius: 5px;
+    margin-right: 5px;
+    height: 100%;
+    padding: 5px;
+    overflow-y: auto;
+}
+
 .character-stats
 {
     overflow: hidden;
@@ -48,18 +58,18 @@ html, body
     padding-right: 10px;
 }
 
-#mid-area, #left-area
+#mid-area, #left-area, #right-area
 {
     float: left;
-    height: 98%;
+    height: 100%;
 }
 
 #mid-area
 {
-    width: 68%;
+    width: 70%;
 }
 
-#left-area
+#left-area, #right-area
 {
     width: 15%;
 }
