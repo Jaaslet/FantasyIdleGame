@@ -5,4 +5,5 @@ var character2Name = 'Johanna';
 
 var area1Name = 'Home village';
 
-var event1Name = 'Kill rats';
+var area1event1Name = 'Home';
+var area1event2Name = 'Kill rats';
