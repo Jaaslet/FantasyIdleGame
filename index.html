@@ -10,11 +10,17 @@
     <script src="scripts/character.js"></script>
     <script src="scripts/addCharacters.js"></script>
     <script src="scripts/event.js"></script>
+    <script src="scripts/combatEvent.js"></script>
     <script src="scripts/area.js"></script>
     <script src="scripts/addAreas.js"></script>
-    <script src="scripts/tick.js"></script>
     
     <script>
+        function doTick()
+        {
+            if (currentEvent !== undefined)
+                currentEvent.doTick();
+        }
+    
         window.onload = function()
         {
             for (var characterName in characters)

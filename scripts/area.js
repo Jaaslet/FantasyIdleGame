@@ -1,29 +1,27 @@
-function newArea(divId, name, events)
+class Area
 {
-    var result =
-    {
-        divId: divId,
-        name: name,
-        unlocked: false,
-        
-        events: events,
-        
-        
-        updateUI: function()
-        {
-            if (this.unlocked)
-            {
-                $('#areas').append(
-                    '<div id="' + divId + '" class="area">' +
-                        '<h1 class="area-name">' + this.name + '</h1>' +
-                        '<div class="events">' +
-                            this.events.reduce((result, e) => result + e.getUI(), '') +
-                        '</div>' +
-                    '</div>'
-                );
-            }
-        }
-    };
+    unlocked = false;
     
-    return result;
+    constructor(divId, name, events)
+    {
+        this.divId = divId;
+        this.name = name;
+        this.events = events;
+    }
+        
+        
+    updateUI()
+    {
+        if (this.unlocked)
+        {
+            $('#areas').append(
+                '<div id="' + this.divId + '" class="area">' +
+                    '<h1 class="area-name">' + this.name + '</h1>' +
+                    '<div class="events">' +
+                        this.events.reduce((result, e) => result + e.getUI(), '') +
+                    '</div>' +
+                '</div>'
+            );
+        }
+    }
 }
