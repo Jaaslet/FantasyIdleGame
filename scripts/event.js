@@ -5,11 +5,10 @@ class Event
 {
     unlocked = false;
     
-    constructor(name, description, type)
+    constructor(name, description)
     {
         this.name = name;
         this.description = description;
-        this.type = type;
     }
         
         

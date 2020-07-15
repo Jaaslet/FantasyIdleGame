@@ -1,6 +1,7 @@
 class Character
 {
     unlocked = false;
+    xp = 0;
     
     constructor(divId, name, baseAtk, baseDef, baseHp)
     {
@@ -15,6 +16,14 @@ class Character
     getAtk() { if (this.unlocked) return this.baseAtk; else return 0; }
     getDef() { if (this.unlocked) return this.baseDef; else return 0; }
     getHp() { if (this.unlocked) return this.baseHp; else return 0; }
+    
+    addXp(amount)
+    {
+        if (!this.unlocked)
+            return;
+        
+        this.xp += amount;
+    }
         
     updateUI    ()
     {

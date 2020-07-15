@@ -1,11 +1,12 @@
 class CombatEvent extends Event
 {    
-    constructor(name, description, type, atk, def, hp)
+    constructor(name, description, atk, def, hp, rewards)
     {
-        super(name, description, type);
+        super(name, description);
         this.hp = hp;
         this.def = def;
         this.atk = atk;
+        this.rewards = rewards;
     }
     
     
@@ -14,7 +15,7 @@ class CombatEvent extends Event
         $('#currentEvent').html(
             '<div class="enemy-stats">atk: <span id="enemy-atk">' + this.atk + '</span></div>' +
             '<div class="enemy-stats">def: <span id="enemy-def">' + this.def + '</span></div>' +
-            '<div class="enemy-stats">hp: <span id="enemy-hp">' + this.hp + '</span></div>'
+            '<div class="enemy-stats">hp: <span id="enemy-hp">' + this.hp + '</span>/' + this.hp + '</div>'
         );
         currentEvent = this;
         this.currentHp = this.hp;
@@ -30,6 +31,12 @@ class CombatEvent extends Event
             damageToEnemy = 0;
         
         this.currentHp = this.currentHp - damageToEnemy
+        
+        if (this.currentHp <= 0)
+        {
+            this.rewards.giveRewards();
+            this.currentHp = this.hp;
+        }
         
         $('#enemy-hp').html(this.currentHp);
     }

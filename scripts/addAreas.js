@@ -2,7 +2,9 @@ var areas = {};
 
 areas[area1Name] = new Area('area1', area1Name,
 [
-    new CombatEvent(event1Name, 'Killing rats in your home village will earn you some gold', 'combat', 6, 1, 16 )
+    new CombatEvent(event1Name, 'Killing rats in your home village will earn you some gold', 6, 1, 16,
+        new Rewards(1, 1)
+    )
 ]);
 
 
