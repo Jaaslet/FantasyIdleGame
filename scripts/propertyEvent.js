@@ -65,7 +65,7 @@ class PropertyEvent extends Event
     onClick()
     {
         $('#currentEvent').html(
-            '<div class="event"><button class="event-button" onclick="PropertyEvent.rest();">Rest</button></div>'
+            '<div class="event"><button class="event-button" onclick="PropertyEvent.rest();"><h3>Rest</h3></button></div>'
         );
         
         for (var i in this.propertyUpgrades)
