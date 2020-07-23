@@ -33,5 +33,20 @@ var playerinfo =
     {
         this.gold += amount;
         $('#playerinfo-gold-amount').html(this.gold);
+    },
+    
+    save: function(playerinfoSaveObj)
+    {
+        playerinfoSaveObj['gold'] = this.gold;
+        playerinfoSaveObj['currentHp'] = this.currentHp;
+    },
+    
+    load: function(playerinfoSaveObj)
+    {
+        if (playerinfoSaveObj === undefined)
+            return;
+        
+        this.gold = playerinfoSaveObj['gold'];
+        this .currentHp = playerinfoSaveObj['currentHp'];
     }
 }
