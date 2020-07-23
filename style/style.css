@@ -20,6 +20,7 @@ body
     width: auto;
     margin-bottom: 5px;
     padding: 5px;
+    overflow: hidden;
 }
 
 .character-name, .area-name, .property-name
@@ -99,4 +100,5 @@ body
     padding-bottom: 0.6vh;
     padding-left: 0.3vw;
     padding-right: 0.3vw;
+    overflow: auto;
 }
