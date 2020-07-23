@@ -1,6 +1,7 @@
-html, body
+body
 {
-  height: 100vh; 
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
 }
 
 .character, .property
@@ -30,7 +31,7 @@ html, body
 {
     border: 0.3vh solid black;
     border-radius: 5px;
-    height: 86.4vh;
+    height: 85.4vh;
     padding: 0.6vh;
     overflow-y: auto;
 }
@@ -40,7 +41,7 @@ html, body
     border: 0.3vh solid black;
     border-radius: 5px;
     margin-right: 5px;
-    height: 98.2vh;
+    height: 97.2vh;
     padding: 0.6vh;
     overflow-y: auto;
 }
@@ -59,7 +60,7 @@ html, body
 #mid-area, #left-area, #right-area
 {
     float: left;
-    height: 100vh;
+    height: 99vh;
 }
 
 #mid-area
@@ -79,7 +80,7 @@ html, body
     margin-bottom: 0.6vh;
     margin-right: 5px;
     margin-left: 5px;
-    height: 47.9vh;
+    height: 47.4vh;
     padding: 0.6vh;
 }
 
@@ -89,7 +90,7 @@ html, body
     border-radius: 5px;
     margin-right: 5px;
     margin-left: 5px;
-    height: 47.9vh;
+    height: 47.4vh;
     padding: 0.6vh;
     
 }
