@@ -2,11 +2,20 @@ body
 {
     margin-top: 0.5vh;
     margin-bottom: 0.5vh;
+    margin-left: 0.25vw;
+    margin-right: 0.25vw;
+}
+
+#playerinfo, #characters, #areas, #properties, #currentEvent, .character, .property
+{
+    border-top: 0.3vh solid black;
+    border-bottom: 0.3vh solid black;
+    border-left: 0.15vw solid black;
+    border-right: 0.15vw solid black;
 }
 
 .character, .property
 {
-    border: 2px solid black;
     border-radius: 5px;
     width: auto;
     margin-bottom: 5px;
@@ -20,29 +29,23 @@ body
 
 #playerinfo
 {
-    border: 0.3vh solid black;
     border-radius: 5px;
     margin-bottom: 0.6vh;
     height: 9.94vh;
-    padding: 0.6vh;
 }
 
 #characters
 {
-    border: 0.3vh solid black;
     border-radius: 5px;
     height: 85.4vh;
-    padding: 0.6vh;
     overflow-y: auto;
 }
 
 #properties
 {
-    border: 0.3vh solid black;
     border-radius: 5px;
     margin-right: 5px;
     height: 97.2vh;
-    padding: 0.6vh;
     overflow-y: auto;
 }
 
@@ -65,32 +68,35 @@ body
 
 #mid-area
 {
-    width: 70%;
+    width: 69.6vw;
 }
 
 #left-area, #right-area
 {
-    width: 15%;
+    width: 14.2vw;
 }
 
 #areas
 {
-    border: 0.3vh solid black;
     border-radius: 5px;
     margin-bottom: 0.6vh;
-    margin-right: 5px;
-    margin-left: 5px;
+    margin-right: 0.3vw;
+    margin-left: 0.3vw;
     height: 47.4vh;
-    padding: 0.6vh;
 }
 
 #currentEvent
 {
-    border: 0.3vh solid black;
     border-radius: 5px;
-    margin-right: 5px;
-    margin-left: 5px;
+    margin-right: 0.3vw;
+    margin-left: 0.3vw;
     height: 47.4vh;
-    padding: 0.6vh;
-    
+}
+
+#playerinfo, #characters, #areas, #properties, #currentEvent
+{
+    padding-top: 0.6vh;
+    padding-bottom: 0.6vh;
+    padding-left: 0.3vw;
+    padding-right: 0.3vw;
 }
