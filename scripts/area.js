@@ -1,3 +1,5 @@
+var areaIdCounter = 0;
+
 class Area
 {
     unlocked = false;
@@ -7,6 +9,7 @@ class Area
         this.divId = divId;
         this.name = name;
         this.events = events;
+        this.id = areaIdCounter++;
     }
         
         
@@ -23,5 +26,29 @@ class Area
                 '</div>'
             );
         }
+    }
+    
+    save(areasSaveObj)
+    {
+        var eventsSaveObj = {};
+        for (var i in this.events)
+            this.events[i].save(eventsSaveObj);
+        
+        areasSaveObj[this.id] =
+        {
+            events: eventsSaveObj,
+            unlocked: this.unlocked
+        }
+    }
+    
+    load(areasSaveObj)
+    {
+        var saveObj = areasSaveObj[this.id];
+        if (saveObj === undefined)
+            return;
+        
+        for (var i in this.events)
+            this.events[i].load(saveObj['events']);
+        this.unlocked = saveObj['unlocked'];
     }
 }

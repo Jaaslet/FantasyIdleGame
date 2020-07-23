@@ -37,21 +37,25 @@
         {
             var saveObj = {};
             saveObj['characters'] = {};
-            for (var characterName in characters)
-            {
-                characters[characterName].save(saveObj['characters']);
-            }
+            saveObj['areas'] = {};
             
-            Cookies.set('save', JSON.stringify(saveObj), { sameSite: 'strict' });
+            for (var characterName in characters)
+                characters[characterName].save(saveObj['characters']);
+            for (var areaName in areas)
+                areas[areaName].save(saveObj['areas']);
+            
+            Cookies.set('save', JSON.stringify(saveObj), { sameSite: 'strict', path: '' });
         }
         
         function load()
         {
-            var saveObj = JSON.parse(Cookies.get('save'), { sameSite: 'strict' });
-            for (var characterName in characters)
-            {
-                characters[characterName].load(saveObj['characters']);
-            }
+            var saveObj = JSON.parse(Cookies.get('save'), { sameSite: 'strict', path: '' });
+            if (saveObj['characters'] !== undefined)
+                for (var characterName in characters)
+                    characters[characterName].load(saveObj['characters']);
+            if (saveObj['areas'] !== undefined)
+                for (var areaName in areas)
+                    areas[areaName].load(saveObj['areas']);
         }
     
         window.onload = function()

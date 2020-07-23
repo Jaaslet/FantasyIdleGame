@@ -43,6 +43,29 @@ class ShopEvent extends Event
         
         currentEvent = this;
     }
+    
+    save(eventSaveObj)
+    {
+        super.save(eventSaveObj);
+        
+        var itemsSaveObj = {};
+        for (var i in this.items)
+            itemsSaveObj[this.items[i].id] = { bought: this.items[i].bought };
+        eventSaveObj[this.id]['items'] = itemsSaveObj;
+    }
+    
+    load(eventSaveObj)
+    {
+        if (eventSaveObj === undefined)
+            return;
+        
+        super.load(eventSaveObj);
+        
+        for (var i in this.items)
+        {
+            this.items[i].bought = eventSaveObj[this.id]['items'][this.items[i].id]['bought'];
+        }
+    }
 }
 
 var shopEventItemidCounter = 0;

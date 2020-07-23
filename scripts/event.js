@@ -37,4 +37,17 @@ class Event
         this.name = newName;
         $('#event-' + this.id + ' h3').html(this.name);
     }
+    
+    save(eventSaveObj)
+    {
+        eventSaveObj[this.id] = { unlocked: this.unlocked };
+    }
+    
+    load(eventSaveObj)
+    {
+        if (eventSaveObj[this.id] === undefined)
+            return;
+        
+        this.unlocked = eventSaveObj[this.id].unlocked;
+    }
 }
