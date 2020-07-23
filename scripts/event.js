@@ -1,5 +1,6 @@
 var eventFunctions = {};
 var currentEvent = undefined;
+var eventId = 0;
 
 class Event
 {
@@ -9,6 +10,7 @@ class Event
     {
         this.name = name;
         this.description = description;
+        this.id = eventId++;
     }
         
         
@@ -19,7 +21,7 @@ class Event
             eventFunctions[this.name] = this;
             return (
                 '<div class="event">' +
-                    '<button class="event-button" onclick="eventFunctions[\'' + this.name + '\'].onClick()">' +
+                    '<button id ="event-' + this.id + '" class="event-button" onclick="eventFunctions[\'' + this.name + '\'].onClick()">' +
                         '<h3>' + this.name + '</h3>' +
                         '<p>' + this.description + '</p>' +
                     '</button>' +
@@ -28,5 +30,11 @@ class Event
         }
         else
             return "";
+    }
+    
+    updateName(newName)
+    {
+        this.name = newName;
+        $('#event-' + this.id + ' h3').html(this.name);
     }
 }

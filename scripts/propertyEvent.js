@@ -54,12 +54,15 @@ class PropertyEvent extends Event
                 upgrade.unlocked = true;
                 playerinfo.income += upgrade.income - oldIncome;
                 
+                if (upgrade.newName !== undefined)
+                    this.updateName(upgrade.newName);
+                
                 $('#' + this.divId + '-income').html(upgrade.income);
                 this.onClick();
                 
                 return;
             }
-        }            
+        }
     }
     
     onClick()
@@ -71,6 +74,9 @@ class PropertyEvent extends Event
         for (var i in this.propertyUpgrades)
         {
             var upgrade = this.propertyUpgrades[i];
+            if (upgrade.newName !== undefined && upgrade.unlocked)
+                this.updateName(upgrade.newName);
+            
             if (!upgrade.unlocked)
             {
                 $('#currentEvent').append(
@@ -99,11 +105,12 @@ class PropertyEventUpgrade
 {
     unlocked = false;
     
-    constructor(price, income, name, description)
+    constructor(price, income, name, description, newName)
     {
         this.price = price;
         this.income = income;
         this.name = name;
         this.description = description;
+        this.newName = newName;
     }
 }
