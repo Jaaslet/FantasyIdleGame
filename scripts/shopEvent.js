@@ -61,10 +61,12 @@ class ShopEvent extends Event
         
         super.load(eventSaveObj);
         
+        if (eventSaveObj[this.id]['items'] === undefined)
+            return;
+        
         for (var i in this.items)
-        {
-            this.items[i].bought = eventSaveObj[this.id]['items'][this.items[i].id]['bought'];
-        }
+            if (eventSaveObj[this.id]['items'][this.items[i].id] !== undefined)
+                this.items[i].bought = eventSaveObj[this.id]['items'][this.items[i].id]['bought'];
     }
 }
 

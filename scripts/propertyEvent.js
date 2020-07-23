@@ -94,6 +94,31 @@ class PropertyEvent extends Event
         currentEvent = this;
     }
     
+    save(eventSaveObj)
+    {
+        super.save(eventSaveObj);
+        
+        var upgradesSaveObj = {};
+        for (var i in this.propertyUpgrades)
+            upgradesSaveObj[this.propertyUpgrades[i].id] = { unlocked: this.propertyUpgrades[i].unlocked };
+        eventSaveObj[this.id]['propertyUpgrades'] = upgradesSaveObj;
+    }
+    
+    load(eventSaveObj)
+    {
+        if (eventSaveObj === undefined)
+            return;
+        
+        super.load(eventSaveObj);
+        
+        if (eventSaveObj[this.id]['propertyUpgrades'] === undefined)
+            return;
+        
+        for (var i in this.propertyUpgrades)
+            if (eventSaveObj[this.id]['propertyUpgrades'][this.propertyUpgrades[i].id] !== undefined)
+                this.propertyUpgrades[i].unlocked = eventSaveObj[this.id]['propertyUpgrades'][this.propertyUpgrades[i].id]['unlocked'];
+    }
+    
     static rest()
     {
         playerinfo.currentHp = playerinfo.hp;
@@ -101,12 +126,15 @@ class PropertyEvent extends Event
     }
 }
 
+var propertyEventUpgradeIdCounter = 0;
+
 class PropertyEventUpgrade
 {
     unlocked = false;
     
     constructor(price, income, name, description, newName)
     {
+        this.id = propertyEventUpgradeIdCounter++;
         this.price = price;
         this.income = income;
         this.name = name;
