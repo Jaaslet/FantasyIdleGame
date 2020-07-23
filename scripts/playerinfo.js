@@ -1,6 +1,6 @@
 var playerinfo =
 {
-    gold: 20,
+    gold: 0,
     currentHp: 0,
     atk: 0,
     def: 0,
