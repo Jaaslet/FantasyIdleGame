@@ -1,9 +1,10 @@
 class Rewards
 {
-    constructor(gold, xp)
+    constructor(gold, xp, character)
     {
         this.gold = gold;
         this.xp = xp;
+        this.character = character;
     }
     
     giveRewards()
@@ -16,6 +17,13 @@ class Rewards
             {
                 characters[characterName].addXp(this.xp);
             }
+        }
+        if (this.character !== undefined)
+        {
+            
+            characters[this.character].unlocked = true;
+            characters[this.character].updateUI();
+            playerinfo.updateUI();
         }
     }
 }

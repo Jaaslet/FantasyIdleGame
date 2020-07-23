@@ -1,19 +1,19 @@
 var playerinfo =
 {
-    gold: 0,
+    gold: 20,
     currentHp: 0,
     atk: 0,
     def: 0,
     hp: 0,
     income: 0,
     
-    createUI: function()
+    updateUI: function()
     {
         this.atk = this.getAtk();
         this.def = this.getDef();
         this.hp = this.getHp();
         this.currentHp = this.getHp();
-        $('#playerinfo').append(
+        $('#playerinfo').html(
             '<div class="character-stats">' +
                 '<div id="playerinfo-gold">Gold:<br/><span id="playerinfo-gold-amount">' + this.gold + '</span></div>' +
                 '<div id="playerinfo-atk">Atk:<br/><span id="playerinfo-atk-amount">' + this.getAtk() + '</span></div>' +

@@ -10,9 +10,14 @@ areas[area1Name] = new Area('area1', area1Name,
         new PropertyEventUpgrade(5000, 30, 'Build inn bigger', 'Even more rooms to rent out')
     ]),
     new CombatEvent(area1event2Name, 'Killing rats in your home village will earn you some gold', 6, 1, 16,
-        new Rewards(1, 1)
+        new Rewards(1, 1, undefined)
     ),
-    
+    new ShopEvent(area1event3Name, 'Recruit people',
+    [
+        new ShopEventItem('Recruit ' + character2Name, '', 20,
+            new Rewards(undefined, undefined, character2Name)
+        )
+    ])
 ]);
 
 
@@ -29,3 +34,4 @@ areas[area1Name] = new Area('area1', area1Name,
 areas[area1Name].unlocked = true;
 areas[area1Name].events[0].unlocked = true;
 areas[area1Name].events[1].unlocked = true;
+areas[area1Name].events[2].unlocked = true;

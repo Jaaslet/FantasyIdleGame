@@ -15,6 +15,7 @@ class ShopEvent extends Event
         
         playerinfo.changeGold(-item.price);
         item.rewards.giveRewards();
+        item.bought = true;
         $('#shop-event-item-' + item.id).prop('disabled', true);
     }
     
