@@ -49,7 +49,11 @@
         
         function load()
         {
-            var saveObj = JSON.parse(Cookies.get('save'), { sameSite: 'strict', path: '' });
+            var saveObj = Cookies.get('save', { sameSite: 'strict', path: '' });
+            if (saveObj === undefined)
+                return;
+            saveObj = JSON.parse(saveObj);
+            
             if (saveObj['characters'] !== undefined)
                 for (var characterName in characters)
                     characters[characterName].load(saveObj['characters']);
