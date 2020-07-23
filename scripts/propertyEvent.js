@@ -59,6 +59,7 @@ class PropertyEvent extends Event
                 
                 $('#' + this.divId + '-income').html(upgrade.income);
                 this.onClick();
+                save();
                 
                 return;
             }

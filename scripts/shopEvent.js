@@ -17,6 +17,7 @@ class ShopEvent extends Event
         item.rewards.giveRewards();
         item.bought = true;
         $('#shop-event-item-' + item.id).prop('disabled', true);
+        save();
     }
     
     createUI() { }
