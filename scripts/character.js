@@ -1,3 +1,5 @@
+var characterIdCounter = 0;
+
 class Character
 {
     unlocked = false;
@@ -10,6 +12,7 @@ class Character
         this.baseAtk = baseAtk;
         this.baseDef = baseDef;
         this.baseHp = baseHp;
+        this.id = characterIdCounter++;
     }
     
         
@@ -40,5 +43,20 @@ class Character
                 '</div>'
             )
         }
+    }
+    
+    save(characterSaveObject)
+    {
+        characterSaveObject[this.id] = { xp: this.xp, unlocked: this.unlocked };
+    }
+    
+    load(characterSaveObject)
+    {
+        var charObj = characterSaveObject[this.id];
+        if (charObj === undefined)
+            return;
+        
+        this.xp = charObj.xp;
+        this.unlocked = charObj.unlocked;
     }
 }
