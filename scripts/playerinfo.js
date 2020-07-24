@@ -39,6 +39,8 @@ var playerinfo =
     {
         playerinfoSaveObj['gold'] = this.gold;
         playerinfoSaveObj['currentHp'] = this.currentHp;
+		var saveDate = new Date();
+		playerinfoSaveObj['time'] = saveDate.getTime();
     },
     
     load: function(playerinfoSaveObj)
@@ -46,7 +48,11 @@ var playerinfo =
         if (playerinfoSaveObj === undefined)
             return;
         
-        this.gold = playerinfoSaveObj['gold'];
-        this .currentHp = playerinfoSaveObj['currentHp'];
+		var currentDate = new Date();
+		var timeDiff = Math.floor((currentDate.getTime() - playerinfoSaveObj['time'])/1000);
+		var afkGain = Math.floor(timeDiff * this.income * 0.1); // 0.1 is an arbitrary 10% while offline
+		// window.alert("You have earned " + afkGain + " gold while being away");
+        this.gold = playerinfoSaveObj['gold'] + afkGain;
+        this.currentHp = playerinfoSaveObj['currentHp'];
     }
 }
