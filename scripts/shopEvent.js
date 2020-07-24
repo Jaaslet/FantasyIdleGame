@@ -57,7 +57,7 @@ class ShopEvent extends Event
     
     load(eventSaveObj)
     {
-        if (eventSaveObj === undefined)
+        if (eventSaveObj === undefined || eventSaveObj[this.id] === undefined)
             return;
         
         super.load(eventSaveObj);
