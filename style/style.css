@@ -6,7 +6,7 @@ body
     margin-right: 0.25vw;
 }
 
-#playerinfo, #characters, #areas, #properties, #currentEvent, .character, .property
+#playerinfo, #characters, #areas, #properties, #currentEvent, #quests, .character, .property, .quest
 {
     border-top: 0.3vh solid black;
     border-bottom: 0.3vh solid black;
@@ -14,7 +14,7 @@ body
     border-right: 0.15vw solid black;
 }
 
-.character, .property
+.character, .property, .quest
 {
     border-radius: 5px;
     width: auto;
@@ -23,7 +23,7 @@ body
     overflow: hidden;
 }
 
-.character-name, .area-name, .property-name
+.character-name, .area-name, .property-name, .quest-name
 {
     margin: 0px;
 }
@@ -45,8 +45,15 @@ body
 #properties
 {
     border-radius: 5px;
-    margin-right: 5px;
-    height: 97.2vh;
+    height: 47.7vh;
+    overflow-y: auto;
+    margin-bottom: 0.6vh
+}
+
+#quests
+{
+    border-radius: 5px;
+    height: 47.7vh;
     overflow-y: auto;
 }
 
@@ -94,7 +101,7 @@ body
     height: 47.4vh;
 }
 
-#playerinfo, #characters, #areas, #properties, #currentEvent
+#playerinfo, #characters, #areas, #properties, #currentEvent, #quests
 {
     padding-top: 0.6vh;
     padding-bottom: 0.6vh;
