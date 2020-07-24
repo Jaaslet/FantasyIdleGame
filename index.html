@@ -18,6 +18,8 @@
     <script src="scripts/propertyEvent.js"></script>
     <script src="scripts/area.js"></script>
     <script src="scripts/addAreas.js"></script>
+    <script src="scripts/quest.js"></script>
+    <script src="scripts/addQuests.js"></script>
     
     <script>
         saveCounter = 0;
@@ -39,12 +41,15 @@
             saveObj['characters'] = {};
             saveObj['areas'] = {};
             saveObj['playerinfo'] = {};
+            saveObj['quests'] = {};
             
             playerinfo.save(saveObj['playerinfo']);
             for (var characterName in characters)
                 characters[characterName].save(saveObj['characters']);
             for (var areaName in areas)
                 areas[areaName].save(saveObj['areas']);
+            for (var questName in quests)
+                quests[questName].save(saveObj['quests']);
             
             Cookies.set('save', JSON.stringify(saveObj), { sameSite: 'strict', path: '' });
         }
@@ -63,6 +68,9 @@
             if (saveObj['areas'] !== undefined)
                 for (var areaName in areas)
                     areas[areaName].load(saveObj['areas']);
+            if (saveObj['quests'] !== undefined)
+                for (var questName in quests)
+                    quests[questName].load(saveObj['quests']);
         }
     
         window.onload = function()
@@ -71,6 +79,10 @@
             for (var characterName in characters)
             {
                 characters[characterName].updateUI();
+            }
+            for (var questName in quests)
+            {
+                quests[questName].updateUI();
             }
             for (var areaName in areas)
             {
@@ -95,6 +107,7 @@
     </div>
     <div id="right-area">
         <div id="properties"></div>
+        <div id="quests"></div>
     </div>
     
   </body>
