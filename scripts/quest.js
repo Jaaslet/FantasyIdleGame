@@ -17,7 +17,7 @@ class Quest
     
     addProgress()
     {
-        if (!this.unlocked || this.complete)
+        if (!this.unlocked || this.completed)
             return;
         
         this.amount++;
@@ -32,7 +32,7 @@ class Quest
     
     updateUI()
     {
-        if (this.unlocked)
+        if (this.unlocked && !this.completed)
         {
             $('#quests').append(
                 '<div id="quest-' + this.id + '" class="quest">' +
