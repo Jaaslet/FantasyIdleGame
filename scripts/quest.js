@@ -51,11 +51,11 @@ class Quest
     load(questSaveObject)
     {
         var questObj = questSaveObject[this.id];
-        if (questObj === undefined)
-            return;
-        
-        this.amount = questObj.amount;
-        this.unlocked = questObj.unlocked;
-        this.completed = questObj.completed;
+        if (questObj !== undefined)
+        {
+            this.amount = questObj["amount"];
+            this.unlocked = questObj["unlocked"];
+            this.completed = questObj.["completed"];
+        }
     }
 }
