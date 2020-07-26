@@ -18,7 +18,6 @@ class Event
     {
         if (this.unlocked)
         {
-            eventFunctions[this.name] = this;
             return (
                 '<div class="event">' +
                     '<button id ="event-' + this.id + '" class="event-button" onclick="eventFunctions[\'' + this.name + '\'].onClick()">' +
@@ -45,9 +44,10 @@ class Event
     
     load(eventSaveObj)
     {
-        if (eventSaveObj[this.id] === undefined)
-            return;
-        
-        this.unlocked = eventSaveObj[this.id].unlocked;
+        eventFunctions[this.name] = this;
+        if (eventSaveObj[this.id] !== undefined)
+        {
+            this.unlocked = eventSaveObj[this.id].unlocked;
+        }
     }
 }

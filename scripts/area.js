@@ -44,11 +44,15 @@ class Area
     load(areasSaveObj)
     {
         var saveObj = areasSaveObj[this.id];
-        if (saveObj === undefined)
-            return;
+        var eventObj = undefined;
+        if (saveObj !== undefined)
+        {
+            this.unlocked = saveObj['unlocked'];
+            eventObj = saveObj['events'];
+        }
+        
         
         for (var i in this.events)
-            this.events[i].load(saveObj['events']);
-        this.unlocked = saveObj['unlocked'];
+            this.events[i].load(eventObj);
     }
 }

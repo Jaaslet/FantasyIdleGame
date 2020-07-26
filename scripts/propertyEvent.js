@@ -26,9 +26,7 @@ class PropertyEvent extends Event
     {
         if (this.unlocked)
         {
-            playerinfo.income += this.getIncome();
-            properties.push(this);
-            
+          
             $('#properties').append(
                 '<div id="' + this.divId + '" class="property">' +
                     '<h3 class="property-name">' + this.name + '</h3>' +
@@ -107,17 +105,19 @@ class PropertyEvent extends Event
     
     load(eventSaveObj)
     {
-        if (eventSaveObj === undefined || eventSaveObj[this.id] === undefined)
-            return;
+        if (eventSaveObj !== undefined && eventSaveObj[this.id] !== undefined)
+        {
+            super.load(eventSaveObj);
         
-        super.load(eventSaveObj);
-        
-        if (eventSaveObj[this.id]['propertyUpgrades'] === undefined)
-            return;
-        
-        for (var i in this.propertyUpgrades)
-            if (eventSaveObj[this.id]['propertyUpgrades'][this.propertyUpgrades[i].id] !== undefined)
-                this.propertyUpgrades[i].unlocked = eventSaveObj[this.id]['propertyUpgrades'][this.propertyUpgrades[i].id]['unlocked'];
+            if (eventSaveObj[this.id]['propertyUpgrades'] !== undefined)
+            {
+                for (var i in this.propertyUpgrades)
+                    if (eventSaveObj[this.id]['propertyUpgrades'][this.propertyUpgrades[i].id] !== undefined)
+                        this.propertyUpgrades[i].unlocked = eventSaveObj[this.id]['propertyUpgrades'][this.propertyUpgrades[i].id]['unlocked'];
+            }
+        }
+        playerinfo.income += this.getIncome();
+        properties.push(this);
     }
     
     static rest()

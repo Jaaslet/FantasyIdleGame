@@ -9,10 +9,6 @@ var playerinfo =
     
     updateUI: function()
     {
-        this.atk = this.getAtk();
-        this.def = this.getDef();
-        this.hp = this.getHp();
-        this.currentHp = this.getHp();
         $('#playerinfo').html(
             '<div class="character-stats">' +
                 '<div id="playerinfo-gold">Gold:<br/><span id="playerinfo-gold-amount">' + this.gold + '</span></div>' +
@@ -45,14 +41,18 @@ var playerinfo =
     
     load: function(playerinfoSaveObj)
     {
-        if (playerinfoSaveObj === undefined)
-            return;
+        this.atk = this.getAtk();
+        this.def = this.getDef();
+        this.hp = this.getHp();
+        this.currentHp = this.getHp();
         
-		var currentDate = new Date();
-		var timeDiff = Math.floor((currentDate.getTime() - playerinfoSaveObj['time'])/1000);
-		var afkGain = Math.floor(timeDiff * this.income * 0.1); // 0.1 is an arbitrary 10% while offline
-		// window.alert("You have earned " + afkGain + " gold while being away");
-        this.gold = playerinfoSaveObj['gold'] + afkGain;
-        this.currentHp = playerinfoSaveObj['currentHp'];
+        if (playerinfoSaveObj !== undefined)
+        {
+            var currentDate = new Date();
+            var timeDiff = Math.floor((currentDate.getTime() - playerinfoSaveObj['time']) / 1000);
+            var afkGain = Math.floor(timeDiff * this.income * 0.1); // 0.1 is an arbitrary 10% while offline
+            this.gold = playerinfoSaveObj['gold'] + afkGain;
+            this.currentHp = playerinfoSaveObj['currentHp'];
+        }
     }
 }

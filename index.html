@@ -57,20 +57,16 @@
         function load()
         {
             var saveObj = Cookies.get('save', { sameSite: 'strict', path: '' });
-            if (saveObj === undefined)
-                return;
-            saveObj = JSON.parse(saveObj);
+            if (saveObj !== undefined)
+                saveObj = JSON.parse(saveObj);
             
+            for (var characterName in characters)
+                characters[characterName].load(saveObj['characters']);
+            for (var areaName in areas)
+                areas[areaName].load(saveObj['areas']);
+            for (var questName in quests)
+                quests[questName].load(saveObj['quests']);
             playerinfo.load(saveObj['playerinfo']);
-            if (saveObj['characters'] !== undefined)
-                for (var characterName in characters)
-                    characters[characterName].load(saveObj['characters']);
-            if (saveObj['areas'] !== undefined)
-                for (var areaName in areas)
-                    areas[areaName].load(saveObj['areas']);
-            if (saveObj['quests'] !== undefined)
-                for (var questName in quests)
-                    quests[questName].load(saveObj['quests']);
         }
     
         window.onload = function()
