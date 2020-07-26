@@ -17,7 +17,7 @@ class Quest
     
     addProgress()
     {
-        if (!this.unlocked || this.complete)
+        if (!this.unlocked || this.completed)
             return;
         
         this.amount++;
